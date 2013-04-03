@@ -1,0 +1,47 @@
+#*-* coding: utf-8 *-*
+
+import pygame
+import math
+
+
+#Abstract class - every other object in game inherits from this class
+class Object(pygame.sprite.Sprite):
+	
+	#constructor of every subclass should call this function firstly.
+	def __init__(self, world, mass, position):
+		self.world = worlds
+		self.mass = mass
+		self.position = position
+
+		self.vx = 0
+		self.vy = 0
+		
+		self.thrustx = 0
+		self.thrusty = 0
+			
+	def update(self):
+		
+		self.lastpos = self.pos
+		self.lastvx = self.vx
+		self.lastvy = self.vy
+		
+		Fx = []
+		Fy = []
+	
+		for obj in self.world.objects:
+			if obj != self:
+				dx = obj.position[0] - self.position[0]
+				dy = obj.position[1] - self.position[1]
+				
+				fx = 8.31 * obj.mass * self.mass/(dx**2)
+				fy = 8.31 * obj.mass * self.mass/(dy**2)
+				
+				Fx.append(fx)
+				Fy.append(fy)
+		
+		Fx = reduce(+, self.Fx, 0) + self.thrustx
+		Fy = reduce(+, self.Fy, 0) + self.thrusty
+		
+		self.vx += Fx*(1.0/self.world.interval)/self.mass 
+		self.vy += Fy*(1.0/self.world.interval)/self.mass 
+		

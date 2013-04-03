@@ -1,0 +1,55 @@
+{	
+	"name": "demo",
+	"position": [0, 0], 
+	"y": 3000, 
+	"x": 3000,
+	"objects": [
+		{
+			"player": false, 
+			"direction": "L", 
+			"ident": "a", 
+			"radius": 100, 
+			"mass": 10000000, 
+			"energy_loss": 0.99, 
+			"thrust": 0, 
+			"position": [1500, 500], 
+			"type": "planet", 
+			"orbit": "central_object"
+		},
+		{
+			"player": false, 
+			"direction": "R", 
+			"ident": "b", 
+			"radius": 50, 
+			"mass": 1000, 
+			"energy_loss": 0.99, 
+			"thrust": 0, 
+			"position": [1500, 1700], 
+			"type": "planet", 
+			"orbit": "central_object"
+		},
+		{
+			"ident": "central_object", 
+			"radius": 100, 
+			"mass": 10000000000000000, 
+			"player": false, 
+			"energy_loss": 0.99, 
+			"thrust": 0, 
+			"position": [1500, 1500], 
+			"type": "star", 
+			"orbit": null
+		},
+		{
+			"player": true, 
+			"direction": "L", 
+			"ident": "ship", 
+			"radius": 32, 
+			"mass": 1, 
+			"energy_loss": 0.5, 
+			"thrust": 10, 
+			"position": [1500, 200], 
+			"type": "ship", 
+			"orbit": "central_object"
+		}
+	]
+}
